@@ -33,7 +33,7 @@ def zarr_source():
         tdir = tempfile.mkdtemp()
         data = xr.open_dataset(TEST_URLPATH)
         data.to_zarr(tdir)
-        yield ZarrSource(tdir)
+        yield ZarrSource(tdir, chunks={"level": 4})
     finally:
         shutil.rmtree(tdir)
 

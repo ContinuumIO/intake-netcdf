@@ -8,6 +8,7 @@ import subprocess
 import time
 import xarray as xr
 import fsspec
+import pytest
 import dask
 import numpy
 import s3fs
@@ -15,6 +16,7 @@ import s3fs
 here = os.path.abspath(os.path.dirname(__file__))
 cat_file = os.path.join(here, 'data', 'catalog.yaml')
 DIRECTORY = os.path.join(here, 'data')
+pytest.importorskip("RangeHTTPServer")
 
 
 @pytest.fixture(scope='module')
